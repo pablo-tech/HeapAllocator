@@ -1,5 +1,5 @@
 # HeapAllocator
-C heap allocator
+C heap allocator, enhancements over Bryant and O'Hallaron's Computer Systems
 
 
 ## Implicit Memory Allocator
