@@ -1,0 +1,93 @@
+--------------------------------------------------------------------------------
+Profile data file 'callgrind.out.19241' (creator: callgrind-3.13.0)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 1113759
+Trigger: Program termination
+Profiled target:  ./test_bump samples/pattern-repeat.script (PID 19241, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+   Ir 
+--------------------------------------------------------------------------------
+7,500  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+   Ir  file:function
+--------------------------------------------------------------------------------
+5,000  bump.c:mymalloc [/home/ubuntu/environment/cs107/assign7/test_bump]
+2,000  bump.c:roundup [/home/ubuntu/environment/cs107/assign7/test_bump]
+  500  bump.c:myfree [/home/ubuntu/environment/cs107/assign7/test_bump]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: bump.c
+--------------------------------------------------------------------------------
+   Ir 
+
+-- line 21 ----------------------------------------
+    .  
+    .  
+    .  /* Function: roundup
+    .   * -----------------
+    .   * This function rounds up the given number to the given multiple, which
+    .   * must be a power of 2, and returns the result.  (you saw this code in lab1!).
+    .   */
+    .  size_t roundup(size_t sz, size_t mult) {
+1,500      return (sz + mult - 1) & ~(mult - 1);
+  500  }
+    .  
+    .  /* Function: myinit
+    .   * ----------------
+    .   * This function initializes our global variables based on the specified
+    .   * segment boundary parameters.
+    .   */
+    .  bool myinit(void *start, size_t size) {
+    .      segment_start = start;
+-- line 38 ----------------------------------------
+-- line 43 ----------------------------------------
+    .  
+    .  /* Function: mymalloc
+    .   * ------------------
+    .   * This function satisfies an allocation request by placing
+    .   * the allocated block at the end of the heap.  No search means
+    .   * it is fast, but no memory recycling means very poor utilization.
+    .   */
+    .  void *mymalloc(size_t requestedsz) {
+1,000      size_t needed = roundup(requestedsz, ALIGNMENT);
+2,000  => bump.c:roundup (500x)
+2,000      if (needed + nused > segment_size) {
+    .          return NULL;
+    .      }
+1,000      void *ptr = (char *)segment_start + nused;
+  500      nused += needed;
+  500      return ptr;
+    .  }
+    .  
+    .  /* Function: myfree
+    .   * ----------------
+    .   * This function does nothing - fast!... but lame :(
+    .   */
+  500  void myfree(void *ptr) {}
+    .  
+    .  /* Function: realloc
+    .   * -----------------
+    .   * This function satisfies requests for resizing previously-allocated memory
+    .   * blocks by allocating a new block of the requested size and moving the
+    .   * existing contents to that region.  It's not particularly efficient.
+    .   */
+    .  void *myrealloc(void *oldptr, size_t newsz) {
+-- line 72 ----------------------------------------
+
+--------------------------------------------------------------------------------
+ Ir 
+--------------------------------------------------------------------------------
+100  percentage of events annotated
+

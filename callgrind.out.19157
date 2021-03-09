@@ -1,0 +1,214 @@
+# callgrind format
+version: 1
+creator: callgrind-3.13.0
+pid: 19157
+cmd:  ./test_bump samples/pattern-realloc.script
+part: 1
+
+
+desc: I1 cache: 
+desc: D1 cache: 
+desc: LL cache: 
+
+desc: Timerange: Basic block 0 - 3678516
+desc: Trigger: Program termination
+
+positions: line
+events: Ir
+summary: 68564
+
+
+ob=(1) /lib/x86_64-linux-gnu/ld-2.27.so
+fl=(1) ???
+fn=(0) 0x0000000000001090
+cob=(5) /home/ubuntu/environment/cs107/assign7/test_bump
+cfi=(88) ???
+cfn=(326) _start
+calls=1 0 
+0 68564
+
+ob=(3) /lib/x86_64-linux-gnu/libc-2.27.so
+fl=(123) /build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S
+fn=(492) __memcpy_avx_unaligned_erms
+217 499
++2 499
++1 499
++1 492
++1 492
++3 8
++1 8
++1 8
++1 8
++2 8
++1 8
++33 7
++1 7
++2 1
++1 1
++23 6
++1 6
++1 6
++1 6
++1 6
++4 1
++1 1
++1 1
++1 1
++1 1
++18 484
++1 484
++5 484
++1 484
++1 61
++1 61
++2 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++1 42
++3 19
++1 19
++1 19
++1 19
++1 19
++1 19
++1 19
++1 19
++1 19
++1 19
++3 423
++1 423
++58 423
++1 423
++1 423
++1 423
++1 423
++2 423
++3 423
++1 423
++1 423
++1 423
++2 423
++2 423
++2 423
++3 423
++1 423
++4 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++1 3072
++2 423
++1 423
++1 423
++1 423
++2 423
++1 423
++1 423
+
+fl=(89) /build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c
+fn=(328) (below main)
+cob=(5)
+cfi=(94) /home/ubuntu/environment/cs107/assign7/test_harness.c
+cfn=(352) main
+calls=1 92 
+310 68564
+
+ob=(5)
+fl=(88)
+fn=(326)
+cob=(3)
+cfi=(89)
+cfn=(328)
+calls=1 137 
+0 68564
+
+fl=(140) /home/ubuntu/environment/cs107/assign7/bump.c
+fn=(622) roundup
+29 1017
++1 339
+
+fn=(638) myfree
+64 162
+
+fn=(632) myrealloc
+72 2495
++1 998
+fi=(141) /usr/include/x86_64-linux-gnu/bits/string_fortified.h
+-39 1996
+cob=(3)
+cfi=(123)
+cfn=(492)
+calls=499 217 
+* 55672
+* 499
+fe=(140)
++43 1996
+
+fn=(620) mymalloc
+51 678
+cfn=(622)
+calls=838 -22 
+* 1356
++1 1356
++3 678
++1 339
++1 339
+
+fl=(94)
+fn=(384) test_scripts
+cfn=(602) eval_correctness
+calls=1 159 
+130 68564
+
+fn=(602)
+cfn=(618) eval_malloc
+calls=339 256 
+186 4746
+cfn=(628) eval_realloc
+calls=499 296 
+198 63656
+cfi=(140)
+cfn=(638)
+calls=162 64 
+217 162
+
+fn=(352)
+cfn=(384)
+calls=1 117 
+108 68564
+
+fn=(618)
+cfi=(140)
+cfn=(620)
+calls=339 51 
+261 4746
+
+fn=(628)
+cfi=(140)
+cfn=(632)
+calls=499 72 
+309 63656
+
+totals: 68564

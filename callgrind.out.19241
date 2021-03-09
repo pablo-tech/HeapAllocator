@@ -1,0 +1,92 @@
+# callgrind format
+version: 1
+creator: callgrind-3.13.0
+pid: 19241
+cmd:  ./test_bump samples/pattern-repeat.script
+part: 1
+
+
+desc: I1 cache: 
+desc: D1 cache: 
+desc: LL cache: 
+
+desc: Timerange: Basic block 0 - 1113759
+desc: Trigger: Program termination
+
+positions: line
+events: Ir
+summary: 7500
+
+
+ob=(1) /lib/x86_64-linux-gnu/ld-2.27.so
+fl=(1) ???
+fn=(0) 0x0000000000001090
+cob=(5) /home/ubuntu/environment/cs107/assign7/test_bump
+cfi=(88) ???
+cfn=(326) _start
+calls=1 0 
+0 7500
+
+ob=(3) /lib/x86_64-linux-gnu/libc-2.27.so
+fl=(89) /build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c
+fn=(328) (below main)
+cob=(5)
+cfi=(94) /home/ubuntu/environment/cs107/assign7/test_harness.c
+cfn=(352) main
+calls=1 92 
+310 7500
+
+ob=(5)
+fl=(88)
+fn=(326)
+cob=(3)
+cfi=(89)
+cfn=(328)
+calls=1 137 
+0 7500
+
+fl=(94)
+fn=(384) test_scripts
+cfn=(602) eval_correctness
+calls=1 159 
+130 7500
+
+fn=(602)
+cfn=(618) eval_malloc
+calls=500 256 
+186 7000
+cfi=(140) /home/ubuntu/environment/cs107/assign7/bump.c
+cfn=(630) myfree
+calls=500 64 
+217 500
+
+fn=(618)
+cfi=(140)
+cfn=(620) mymalloc
+calls=500 51 
+261 7000
+
+fn=(352)
+cfn=(384)
+calls=1 117 
+108 7500
+
+fl=(140)
+fn=(620)
+51 1000
+cfn=(622) roundup
+calls=500 -22 
+* 2000
++1 2000
++3 1000
++1 500
++1 500
+
+fn=(630)
+64 500
+
+fn=(622)
+29 1500
++1 500
+
+totals: 7500

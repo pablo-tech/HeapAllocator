@@ -1,0 +1,12 @@
+# 1000 requests, mixed alloc/free
+a 1 714
+f 1
+a 2 23
+a 3 69
+a 4 272
+a 5 770
+a 6 902
+f 2
+
+
+
