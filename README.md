@@ -1,6 +1,7 @@
 # Dynamic Heap Memory Allocator
 C heap allocator, enhancements over Bryant and O'Hallaron's Computer Systems
 
+![picture](heap-allocation.png)
 
 ## Implicit Memory Allocator
 
